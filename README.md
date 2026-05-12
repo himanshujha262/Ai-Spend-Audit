@@ -1,5 +1,6 @@
 # AuditAI by Credex
 
+**[Live Demo: Visit the Site](https://ai-spend-audit-29bidhaz3-himanshujha262s-projects.vercel.app)**
 A production-ready, pure static web application designed to audit and optimize institutional SaaS spend. Built strictly with HTML, CSS, Vanilla JavaScript, and Tailwind CSS (via CDN) to ensure zero build-step overhead and maximum performance.
 
 ## Architecture & Design
