@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuditAI by Credex | AI Spend Optimization</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "inverse-surface": "#213145",
+                    "surface-tint": "#525f77",
+                    "on-primary-container": "#77849e",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#00714d",
+                    "on-background": "#0b1c30",
+                    "secondary": "#006c49",
+                    "tertiary-fixed": "#ffddb8",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-bright": "#f8f9ff",
+                    "primary-container": "#0e1c31",
+                    "tertiary": "#000000",
+                    "on-tertiary-fixed-variant": "#5b4224",
+                    "primary": "#000000",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-tertiary-fixed": "#2a1801",
+                    "inverse-primary": "#bac7e3",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#6ffbbe",
+                    "surface-container-low": "#eff4ff",
+                    "on-surface": "#0b1c30",
+                    "tertiary-fixed-dim": "#e4c099",
+                    "on-primary-fixed": "#0e1c31",
+                    "outline": "#75777d",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#6cf8bb",
+                    "outline-variant": "#c5c6cd",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-tertiary-container": "#9d7e5b",
+                    "primary-fixed": "#d6e3ff",
+                    "on-secondary-fixed": "#002113",
+                    "tertiary-container": "#2a1801",
+                    "on-surface-variant": "#44474d",
+                    "primary-fixed-dim": "#bac7e3",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#cbdbf5",
+                    "error-container": "#ffdad6",
+                    "background": "#f8f9ff",
+                    "on-primary-fixed-variant": "#3a475e",
+                    "surface": "#f8f9ff",
+                    "surface-container": "#e5eeff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "md": "16px",
+                    "margin": "40px",
+                    "gutter": "20px",
+                    "unit": "4px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "data-mono": ["Inter"],
+                    "display-xl": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "data-mono": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9ff;
+        }
+        .zebra-table tr:nth-child(even) {
+            background-color: #F8FAFC;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin h-16 bg-surface/95 backdrop-blur-sm border-b border-outline-variant dark:border-outline">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">AuditAI</div>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="font-body-lg text-body-lg text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary pb-1 transition-colors" href="#">Platform</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Solutions</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Resources</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="font-label-sm text-label-sm text-on-surface hover:text-secondary transition-all">Log In</button>
+<button class="bg-primary text-on-primary px-lg py-sm font-label-sm text-label-sm hover:opacity-80 transition-opacity">Get Started</button>
+</div>
+</header>
+<main class="pt-24 pb-xl">
+<!-- Hero Section -->
+<section class="px-margin mb-xl">
+<div class="max-w-4xl mx-auto text-center">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-md block">Institutional Spend Management</span>
+<h1 class="font-display-xl text-display-xl text-primary mb-lg">Stop Overpaying for AI Tools.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-xl">
+                    Bring transparency to your silicon-labor costs. AuditAI helps enterprise teams consolidate seats, identify idle licenses, and optimize token utilization across the world's leading LLM providers.
+                </p>
+</div>
+</section>
+<!-- Spend Input Form (Multi-step Bento Layout) -->
+<section class="px-margin">
+<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Tool Selection & Configuration -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Step 1: Tool Selection -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary">01. Select Active AI Tools</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">STEP 1 OF 3</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<button class="flex flex-col items-center gap-sm p-lg border-2 border-primary bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="terminal">terminal</span>
+<span class="font-label-sm text-label-sm">Cursor</span>
+</button>
+<button class="flex flex-col items-center gap-sm p-lg border border-outline-variant hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="neurology">neurology</span>
+<span class="font-label-sm text-label-sm">Claude</span>
+</button>
+<button class="flex flex-col items-center gap-sm p-lg border border-outline-variant hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="memory">memory</span>
+<span class="font-label-sm text-label-sm">OpenAI</span>
+</button>
+<button class="flex flex-col items-center gap-sm p-lg border border-outline-variant hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="code">code</span>
+<span class="font-label-sm text-label-sm">Copilot</span>
+</button>
+</div>
+</div>
+<!-- Step 2: Usage Parameters -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary">02. Configure Utilization</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">STEP 2 OF 3</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="space-y-md">
+<label class="block font-label-sm text-label-sm text-on-surface-variant">Plan Level</label>
+<select class="w-full border border-outline-variant px-md py-sm bg-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+<option>Business (Enterprise Tier)</option>
+<option>Pro (Individual Tier)</option>
+<option>Custom API Integration</option>
+</select>
+</div>
+<div class="space-y-md">
+<label class="block font-label-sm text-label-sm text-on-surface-variant">Monthly Spend ($)</label>
+<input class="w-full border border-outline-variant px-md py-sm bg-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="e.g. 12500" type="number"/>
+</div>
+<div class="space-y-md">
+<label class="block font-label-sm text-label-sm text-on-surface-variant">Number of Seats</label>
+<input class="w-full border border-outline-variant px-md py-sm bg-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="50" type="number"/>
+</div>
+<div class="space-y-md">
+<label class="block font-label-sm text-label-sm text-on-surface-variant">Total Team Size</label>
+<input class="w-full border border-outline-variant px-md py-sm bg-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="120" type="number"/>
+</div>
+</div>
+</div>
+<!-- Step 3: Contextual Use -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary">03. Primary Use Case</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">STEP 3 OF 3</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<label class="flex items-center gap-md p-md border border-outline-variant cursor-pointer hover:bg-surface-container transition-all">
+<input class="text-primary focus:ring-primary" name="usecase" type="radio"/>
+<span class="font-body-md text-body-md">Software Engineering</span>
+</label>
+<label class="flex items-center gap-md p-md border border-outline-variant cursor-pointer hover:bg-surface-container transition-all">
+<input class="text-primary focus:ring-primary" name="usecase" type="radio"/>
+<span class="font-body-md text-body-md">Data Analysis</span>
+</label>
+<label class="flex items-center gap-md p-md border border-outline-variant cursor-pointer hover:bg-surface-container transition-all">
+<input class="text-primary focus:ring-primary" name="usecase" type="radio"/>
+<span class="font-body-md text-body-md">Marketing Research</span>
+</label>
+</div>
+<div class="mt-xl flex justify-end">
+<button class="bg-primary text-on-primary px-xl py-md font-label-sm text-label-sm flex items-center gap-md hover:opacity-90 transition-opacity">
+                                GENERATE AUDIT REPORT
+                                <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Live Audit Preview & Data Visualization -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Savings Predictor Card -->
+<div class="bg-primary-container text-on-primary-container p-lg border border-primary-container">
+<h4 class="font-label-sm text-label-sm text-on-primary-fixed-variant mb-xl flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+                            ESTIMATED ANNUAL SAVINGS
+                        </h4>
+<div class="mb-lg">
+<span class="font-display-xl text-display-xl text-primary-fixed">$42,850.00</span>
+<span class="block font-body-md text-body-md text-on-primary-container opacity-80">Projected through license consolidation</span>
+</div>
+<div class="h-1 bg-on-primary-container/20 w-full mb-md">
+<div class="h-1 bg-secondary-fixed w-[65%]"></div>
+</div>
+<p class="font-label-sm text-label-sm">65% efficiency score compared to peers.</p>
+</div>
+<!-- Usage Breakdown Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg">
+<h4 class="font-label-sm text-label-sm text-primary mb-lg">IDENTIFIED INEFFICIENCIES</h4>
+<div class="space-y-md">
+<div class="flex justify-between items-center py-sm border-b border-outline-variant">
+<span class="font-body-md text-body-md">Zombie Seats (Idle)</span>
+<span class="font-data-mono text-data-mono text-error">12 Seats</span>
+</div>
+<div class="flex justify-between items-center py-sm border-b border-outline-variant">
+<span class="font-body-md text-body-md">Duplicate Licenses</span>
+<span class="font-data-mono text-data-mono text-error">4 Seats</span>
+</div>
+<div class="flex justify-between items-center py-sm">
+<span class="font-body-md text-body-md">Sub-Optimal Tiers</span>
+<span class="font-data-mono text-data-mono text-on-secondary-container">8 Users</span>
+</div>
+</div>
+</div>
+<!-- Visual Context Image -->
+<div class="h-48 bg-surface-container-high border border-outline-variant relative overflow-hidden">
+<img alt="Data Dashboard Preview" class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 mix-blend-multiply" data-alt="A clean, high-resolution financial dashboard screen displaying complex data visualizations, bar charts, and growth metrics in a modern, light-themed office setting. The interface is professional and minimal, utilizing a palette of deep slate and vibrant blues. Soft, natural daylight illuminates the desk, emphasizing a high-trust fintech environment designed for precision and technical authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb_Cs2SUDekFmzgkyWWSmO0P7_tRJlIeImn9JmqZSbNze8dv8gYBTmrqu2BwF271nzRW2QhPHZJuVZAV2CMdoCIYhYS4rzPm6p9QfZkxi8Jc5QM7BdtuA2kQbs4Puk1B0J1uk176QMAW2nOnauaC_iZfaee3v-jmZBDV_8j1ruThbRfK-14onkC9h5rcWmeFGtYZEmtyVqbc_7oZkoM48z7devaS3HLojTlk1F7KbQxHh89piPwAcvmw20HgU0HwFEhGdDxLUfP4k"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="bg-surface px-md py-sm font-label-sm text-label-sm border border-outline-variant">VIEW SAMPLE REPORT</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Proof Section: Data Table -->
+<section class="px-margin mt-xl py-xl bg-surface-container">
+<div class="max-w-6xl mx-auto">
+<div class="mb-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">Peer Benchmarking</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">How your current spend compares to similar sized engineering organizations.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant overflow-hidden">
+<table class="w-full text-left zebra-table">
+<thead class="bg-surface-container-highest border-b border-outline-variant">
+<tr>
+<th class="px-lg py-md font-label-sm text-label-sm text-primary uppercase">Organization Size</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-primary uppercase">Avg Monthly Spend</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-primary uppercase">AuditAI Efficiency</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-primary uppercase">ROI Period</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr>
+<td class="px-lg py-md">10 - 50 Seats</td>
+<td class="px-lg py-md">$2,400</td>
+<td class="px-lg py-md text-secondary">94%</td>
+<td class="px-lg py-md">2 Months</td>
+</tr>
+<tr>
+<td class="px-lg py-md">51 - 250 Seats</td>
+<td class="px-lg py-md">$15,800</td>
+<td class="px-lg py-md text-secondary">88%</td>
+<td class="px-lg py-md">3 Months</td>
+</tr>
+<tr>
+<td class="px-lg py-md">251 - 1000 Seats</td>
+<td class="px-lg py-md">$45,000+</td>
+<td class="px-lg py-md text-secondary">82%</td>
+<td class="px-lg py-md">4 Months</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin py-lg flex flex-col md:flex-row justify-between items-center gap-md border-t border-outline-variant dark:border-outline bg-surface-container-lowest dark:bg-primary-container">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">AuditAI</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container">© 2024 Credex AuditAI. Institutional precision in financial auditing.</p>
+</div>
+<nav class="flex gap-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all" href="#">Security</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all" href="#">Contact Support</a>
+</nav>
+<script src="script.js"></script>
+</body></html>

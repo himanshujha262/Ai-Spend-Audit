@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuditAI | Audit Results Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "inverse-surface": "#213145",
+                        "surface-tint": "#525f77",
+                        "on-primary-container": "#77849e",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#00714d",
+                        "on-background": "#0b1c30",
+                        "secondary": "#006c49",
+                        "tertiary-fixed": "#ffddb8",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-bright": "#f8f9ff",
+                        "primary-container": "#0e1c31",
+                        "tertiary": "#000000",
+                        "on-tertiary-fixed-variant": "#5b4224",
+                        "primary": "#000000",
+                        "secondary-fixed-dim": "#4edea3",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary-fixed": "#2a1801",
+                        "inverse-primary": "#bac7e3",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#6ffbbe",
+                        "surface-container-low": "#eff4ff",
+                        "on-surface": "#0b1c30",
+                        "tertiary-fixed-dim": "#e4c099",
+                        "on-primary-fixed": "#0e1c31",
+                        "outline": "#75777d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#6cf8bb",
+                        "outline-variant": "#c5c6cd",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-container": "#9d7e5b",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-container": "#2a1801",
+                        "on-surface-variant": "#44474d",
+                        "primary-fixed-dim": "#bac7e3",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "error-container": "#ffdad6",
+                        "background": "#f8f9ff",
+                        "on-primary-fixed-variant": "#3a475e",
+                        "surface": "#f8f9ff",
+                        "surface-container": "#e5eeff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "margin": "40px",
+                        "gutter": "20px",
+                        "unit": "4px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "display-xl": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "data-mono": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin h-16 bg-surface/95 backdrop-blur-sm border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">AuditAI</span>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-body-lg text-body-lg text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary pb-1" href="#">Platform</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Solutions</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Resources</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Pricing</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="font-body-lg text-body-lg text-on-surface-variant hover:text-secondary transition-colors">Log In</button>
+<button class="bg-primary text-on-primary px-lg py-sm font-bold transition-opacity hover:opacity-80">Get Started</button>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-xl">
+<div class="max-w-[1440px] mx-auto px-margin">
+<!-- Hero: Savings Summary -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-xl">
+<div class="bg-surface-container-lowest border border-outline-variant p-xl flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-sm">Total Monthly Savings</span>
+<h1 class="font-display-xl text-display-xl text-secondary">$1,248.50</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Instant liquidity recovered from redundant SaaS subscriptions.</p>
+</div>
+<div class="bg-primary-container p-xl flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase mb-sm">Total Annual Savings</span>
+<h1 class="font-display-xl text-display-xl text-secondary-fixed">$14,982.00</h1>
+<p class="font-body-md text-body-md text-on-primary-container mt-sm">Projected 12-month capital optimization across 8 audited tools.</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Content: Tool Breakdown -->
+<div class="lg:col-span-8 space-y-md">
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-headline-lg text-headline-lg">Subscription Audit Breakdown</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Last updated: Oct 24, 2024</span>
+</div>
+<!-- Tool Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg grid grid-cols-1 md:grid-cols-4 gap-md items-center">
+<div class="md:col-span-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-xs">Tool Name</span>
+<h3 class="font-headline-md text-headline-md">CloudScale API</h3>
+<span class="bg-surface-container-high px-sm py-xs text-[10px] font-bold uppercase mt-xs inline-block">Infrastructure</span>
+</div>
+<div class="md:col-span-1 border-l border-outline-variant pl-md">
+<div class="mb-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Current Plan</span>
+<span class="font-data-mono text-data-mono">Enterprise Elite</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Current Spend</span>
+<span class="font-data-mono text-data-mono">$2,400/mo</span>
+</div>
+</div>
+<div class="md:col-span-1 border-l border-outline-variant pl-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase mb-xs">Recommended Action</span>
+<span class="text-secondary font-bold font-body-md">Switch to Credex Credits</span>
+<p class="font-label-sm text-label-sm mt-xs leading-tight">Historical usage shows 40% idle capacity; credits eliminate wastage.</p>
+</div>
+<div class="md:col-span-1 flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Savings Amount</span>
+<span class="font-headline-md text-headline-md text-secondary">-$850.00</span>
+<button class="mt-sm text-primary font-bold font-label-sm underline hover:text-secondary transition-colors">Apply Optimization</button>
+</div>
+</div>
+<!-- Tool Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg grid grid-cols-1 md:grid-cols-4 gap-md items-center">
+<div class="md:col-span-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-xs">Tool Name</span>
+<h3 class="font-headline-md text-headline-md">CRM Flow Pro</h3>
+<span class="bg-surface-container-high px-sm py-xs text-[10px] font-bold uppercase mt-xs inline-block">Sales Ops</span>
+</div>
+<div class="md:col-span-1 border-l border-outline-variant pl-md">
+<div class="mb-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Current Plan</span>
+<span class="font-data-mono text-data-mono">Unlimited User</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Current Spend</span>
+<span class="font-data-mono text-data-mono">$450/mo</span>
+</div>
+</div>
+<div class="md:col-span-1 border-l border-outline-variant pl-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase mb-xs">Recommended Action</span>
+<span class="text-secondary font-bold font-body-md">Downgrade to Pro</span>
+<p class="font-label-sm text-label-sm mt-xs leading-tight">Only 3 of 15 users active in the last 60 days.</p>
+</div>
+<div class="md:col-span-1 flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Savings Amount</span>
+<span class="font-headline-md text-headline-md text-secondary">-$220.00</span>
+<button class="mt-sm text-primary font-bold font-label-sm underline hover:text-secondary transition-colors">Apply Optimization</button>
+</div>
+</div>
+<!-- Tool Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg grid grid-cols-1 md:grid-cols-4 gap-md items-center">
+<div class="md:col-span-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-xs">Tool Name</span>
+<h3 class="font-headline-md text-headline-md">AuthVault</h3>
+<span class="bg-surface-container-high px-sm py-xs text-[10px] font-bold uppercase mt-xs inline-block">Security</span>
+</div>
+<div class="md:col-span-1 border-l border-outline-variant pl-md">
+<div class="mb-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Current Plan</span>
+<span class="font-data-mono text-data-mono">Annual Fixed</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Current Spend</span>
+<span class="font-data-mono text-data-mono">$1,100/mo</span>
+</div>
+</div>
+<div class="md:col-span-1 border-l border-outline-variant pl-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase mb-xs">Recommended Action</span>
+<span class="text-secondary font-bold font-body-md">Consolidate to Hub</span>
+<p class="font-label-sm text-label-sm mt-xs leading-tight">Duplicate features already paid for in your primary stack.</p>
+</div>
+<div class="md:col-span-1 flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Savings Amount</span>
+<span class="font-headline-md text-headline-md text-secondary">-$178.50</span>
+<button class="mt-sm text-primary font-bold font-label-sm underline hover:text-secondary transition-colors">Apply Optimization</button>
+</div>
+</div>
+</div>
+<!-- Sidebar / CTA / Lead Capture -->
+<aside class="lg:col-span-4 space-y-md">
+<!-- High Savings CTA -->
+<div class="bg-on-secondary-container p-xl text-on-secondary relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md mb-md">Unlock $500+ in extra savings with Credex</h3>
+<p class="font-body-md text-body-md opacity-90 mb-lg">Our institutional partnership network allows you to access wholesale pricing unavailable to the public.</p>
+<button class="w-full bg-secondary-fixed text-on-secondary-fixed font-bold py-md transition-all hover:brightness-110">Activate Credits</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">account_balance_wallet</span>
+</div>
+</div>
+<!-- Lead Capture -->
+<div class="bg-surface-container-lowest border border-outline p-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-sm block">Full Audit Export</span>
+<h3 class="font-headline-md text-headline-md mb-sm">Download Financial Report</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl">Get the 42-page technical breakdown of every optimization recommended for your stakeholders.</p>
+<form class="space-y-md" onsubmit="return false;">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Corporate Email</label>
+<input class="w-full mt-xs border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary font-body-lg px-0 py-sm bg-transparent" placeholder="finance@company.com" type="email"/>
+</div>
+<button class="w-full bg-primary text-on-primary font-bold py-md transition-opacity hover:opacity-90">Send Full Report</button>
+<p class="font-label-sm text-[10px] text-center text-on-surface-variant uppercase tracking-widest">Confidential &amp; Encrypted</p>
+</form>
+</div>
+<!-- Visual Data Proof -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg">
+<div class="flex items-center justify-between mb-md">
+<span class="font-label-sm text-label-sm font-bold">SAVINGS VELOCITY</span>
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+</div>
+<div class="h-24 flex items-end gap-xs">
+<div class="flex-1 bg-surface-container-high h-[40%]"></div>
+<div class="flex-1 bg-surface-container-high h-[35%]"></div>
+<div class="flex-1 bg-surface-container-high h-[55%]"></div>
+<div class="flex-1 bg-surface-container-high h-[50%]"></div>
+<div class="flex-1 bg-secondary h-[85%]"></div>
+<div class="flex-1 bg-secondary h-[95%]"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-md">Current trajectory projects $18k total ROI by Q4.</p>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin py-lg flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-lowest dark:bg-primary-container border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col gap-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">AuditAI</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container">© 2024 Credex AuditAI. Institutional precision in financial auditing.</p>
+</div>
+<div class="flex gap-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Security</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Contact Support</a>
+</div>
+<script src="script.js"></script>
+</body></html>
